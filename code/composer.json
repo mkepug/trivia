@@ -1,0 +1,14 @@
+{
+    "name": "mkepug/trivia",
+    "description": "Usergroup Trivia Game",
+    "license": "BSD",
+    "authors": [
+        {
+            "name": "MKEPUG",
+            "email": "chat@mkepug.org"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "3.7.29"
+    }
+}
