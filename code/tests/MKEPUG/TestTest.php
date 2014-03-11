@@ -6,15 +6,7 @@
  * Time: 8:30 AM
  */
 use MKEPUG\Test;
-/**
- * Class TestTest
- *
- * @category Uncategorized
- * @author   Jeremy Dee <jeremydee@hotmail.com>
- * @license  Dee-Signed Programs http://www.dee-signed.com
- * @link     link
- * @package  MKEPUG/Trivia
- */
+
 class TestTest extends PHPUnit_Framework_TestCase
 {
     /**
