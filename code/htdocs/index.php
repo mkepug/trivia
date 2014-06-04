@@ -15,16 +15,6 @@
 
     $question = $game->getQuestion($index);
 
-    echo $question->getQuestion() . "<br/>";
-
-    $answers = $question->getAnswers();
-    foreach ($answers as $answer)
-    {
-        $text = $answer['text'];
-        $text = $answer['correct']?"<b>{$text}</b>":$text;
-        echo $text . "<br/>";
-    }
-
-
-    echo "COMMENT: " . $question->getComment();
-
+    $viewContents = new View('question.php',array('question'=>$question));
+    $viewTemplate = new View('main.php',array('viewContents'=>$viewContents));
+    echo $viewTemplate->render();
