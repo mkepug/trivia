@@ -56,7 +56,7 @@ apache:
     vhosts:
         vtE5nTZNXgQh:
             servername: trivia.dev
-            docroot: /var/www/code
+            docroot: /var/www/code/public
             port: '80'
             setenv:
                 - 'APP_ENV dev'
