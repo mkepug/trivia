@@ -1,7 +1,8 @@
 <?php
     namespace MKEPUG;
 
-    $index = isset($_GET['index']) ? (int)$_GET['index'] : 0;
+    $index = isset($_GET['index']) ? (int)$_GET['index'] : 1;
+    $mode = isset($_GET['mode']) ? $_GET['mode'] : 'all';
 
     require __DIR__."/../bootstrap.php";
 
@@ -15,8 +16,6 @@
 
     $question = $game->getQuestion($index);
 
-    $question = $game->getQuestion($index);
-
-    $viewContents = new View('question.php',array('question'=>$question));
+    $viewContents = new View('question.php',array('question'=>$question, 'mode'=>$mode, 'index'=>$index));
     $viewTemplate = new View('main.php',array('viewContents'=>$viewContents));
     echo $viewTemplate->render();

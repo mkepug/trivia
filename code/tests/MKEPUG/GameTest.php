@@ -15,8 +15,9 @@ class GameTest extends PHPUnit_Framework_TestCase {
 
     public function setUp()
     {
-        $q1 = new \MKEPUG\Question(array('question'=>'first','comment'=>'1','answer'=>'1','wrong1'=>'1','wrong2'=>'1','wrong3'=>'1'));
-        $q2 = new \MKEPUG\Question(array('question'=>'second','comment'=>'2','answer'=>'2','wrong1'=>'2','wrong2'=>'2','wrong3'=>'2'));
+        // TODO: fix all the things
+        $q1 = new \MKEPUG\Question(array('question'=>'first','answers'=>array(),'comment'=>'1','answer'=>'1','wrong1'=>'1','wrong2'=>'1','wrong3'=>'1'));
+        $q2 = new \MKEPUG\Question(array('question'=>'second','answers'=>array(),'comment'=>'2','answer'=>'2','wrong1'=>'2','wrong2'=>'2','wrong3'=>'2'));
         $this->obj = new Game(array($q1,$q2));
     }
 
@@ -28,8 +29,8 @@ class GameTest extends PHPUnit_Framework_TestCase {
         );
     }
     /**
-* @dataProvider questionKeys
-*/
+     * @dataProvider questionKeys
+     */
     public function testGetQuestion($key,$type,$q) {
         $question = $this->obj->getQuestion($key);
         $this->assertInstanceOf($type,$question);
