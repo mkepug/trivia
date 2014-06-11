@@ -30,7 +30,10 @@ class View {
     }
 
     /**
-     * @param mixed $items
+     * @param $key
+     * @param $value
+     *
+     * @internal param mixed $items
      */
     public function setItem($key,$value)
     {

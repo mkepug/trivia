@@ -1,18 +1,54 @@
 {
     "1": {
         "question": "What is the most accurate way to determine if an array key is set?",
-        "answer": "array_key_exists('key', $array)",
-        "wrong1": "empty($array['key'])",
-        "wrong2": "isset($array['key'])",
-        "wrong3": "!is_null($array['key'])",
+        "answers": [
+            {
+                "text": "array_key_exists('key', $array)",
+                "correct": true,
+                "remove": false
+            },
+            {
+                "text": "empty($array['key'])",
+                "correct": false,
+                "remove": true
+            },
+            {
+                "text": "isset($array['key'])",
+                "correct": false,
+                "remove": true
+            },
+            {
+                "text": "!is_null($array['key'])",
+                "correct": false,
+                "remove": false
+            }
+        ],
         "comment": "Any other version chokes on array element value of NULL"
     },
     "2": {
         "question": "What's the value of \"234.56\" + \"1,234.14\"?",
-        "answer": "235.56",
-        "wrong1": "'234.561,234.14'",
-        "wrong2": "1468.70",
-        "wrong3": "1468.7",
+        "answers": [
+            {
+                "text": "235.56",
+                "correct": true,
+                "remove": false
+            },
+            {
+                "text": "'234.561,234.14'",
+                "correct": false,
+                "remove": true
+            },
+            {
+                "text": "1468.70",
+                "correct": false,
+                "remove": true
+            },
+            {
+                "text": "1468.7",
+                "correct": false,
+                "remove": false
+            }
+        ],
         "comment": "The comma borks the string->float conversion, 2nd number value becomes 1"
     }
 }

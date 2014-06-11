@@ -1,12 +1,28 @@
+<style>
+    .strike {
+        text-decoration: line-through;
+    }
+</style>
 <div><?=$question->getQuestion()?></div>
-<form>
+<ol>
 <?php
 $answers = $question->getAnswers();
-foreach ($answers as $key => $answer)
-{
+foreach ($answers as $answer) {
     $text = $answer['text'];
-    echo "<input type=\"radio\" name=\"answer\" value=\"{$key}\">{$text}<br/>";
+    $strikethrough = '';
+    if ($mode == '5050' && $answer['remove']) {
+        $strikethrough = ' class="strike"';
+    }
+    if ($mode == 'answer' && !$answer['correct']) {
+        $strikethrough = ' class="strike"';
+    }
+    echo "<li{$strikethrough}><code>{$text}</code></li>";
+}
+$link = "?index=$index" . ($mode == 'all' ? '&mode=5050' : '&mode=answer');
+if ($mode == 'answer') {
+    $link = '?index=' . ($index + 1);
 }
 ?>
-<input type="submit">
-</form>
+</ol>
+<div><?=($mode == 'answer' ? $question->getComment() : null)?></div>
+<a href="<?=$link?>">Next</a>

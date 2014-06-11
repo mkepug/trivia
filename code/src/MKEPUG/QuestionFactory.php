@@ -34,9 +34,9 @@ class QuestionFactory {
     public function getQuestions()
     {
         $aArr = array();
-        foreach ($this->data as $row)
+        foreach ($this->data as $key => $row)
         {
-            $aArr[] = new Question($row);
+            $aArr[$key] = new Question($row);
         }
         return $aArr;
 

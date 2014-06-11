@@ -19,11 +19,7 @@ class Question {
     {
         $this->question = $questionData['question'];
         $this->comment = $questionData['comment'];
-
-        $this->answers[] = array('text'=>$questionData['answer'], 'correct'=>true);
-        $this->answers[] = array('text'=>$questionData['wrong1'], 'correct'=>false);
-        $this->answers[] = array('text'=>$questionData['wrong2'], 'correct'=>false);
-        $this->answers[] = array('text'=>$questionData['wrong3'], 'correct'=>false);
+        $this->answers = $questionData['answers'];
     }
 
     /**
