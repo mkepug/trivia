@@ -27,5 +27,10 @@ class Game {
         return $this->questions[$index];
     }
 
+    public function setQuestions($questions)
+    {
+        $this->questions = $questions;
+    }
+
 
 }

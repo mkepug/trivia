@@ -8,12 +8,12 @@
 <?php
 $answers = $question->getAnswers();
 foreach ($answers as $answer) {
-    $text = $answer['text'];
+    $text = $answer->getText();
     $strikethrough = '';
-    if ($mode == '5050' && $answer['remove']) {
+    if ($mode == '5050' && $answer->getRemove()) {
         $strikethrough = ' class="strike"';
     }
-    if ($mode == 'answer' && !$answer['correct']) {
+    if ($mode == 'answer' && !$answer->getCorrect()) {
         $strikethrough = ' class="strike"';
     }
     echo "<li{$strikethrough}><code>{$text}</code></li>";

@@ -27,4 +27,9 @@ class DataSource {
     {
         return json_decode(file_get_contents($this->file), true);
     }
+
+    public function setData($data)
+    {
+        return file_put_contents($this->file, json_encode($data, JSON_PRETTY_PRINT));
+    }
 } 

@@ -1,5 +1,4 @@
 <?php
-
 namespace MKEPUG;
 
 
@@ -13,4 +12,4 @@ class Autoloader {
         }
     }
 
-} 
+}

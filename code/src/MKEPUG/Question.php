@@ -11,15 +11,18 @@ namespace MKEPUG;
 
 class Question {
 
-    protected $question;
-    protected $answers = array();
-    protected $comment;
+    public $question;
+    public $answers = array();
+    public $comment;
 
     public function __construct($questionData)
     {
         $this->question = $questionData['question'];
         $this->comment = $questionData['comment'];
-        $this->answers = $questionData['answers'];
+        $this->answers = [];
+        foreach($questionData["answers"] as $answer){
+            $this->answers[] = new Answer($answer["text"], $answer["correct"], $answer["remove"]);
+        }
     }
 
     /**
@@ -46,5 +49,29 @@ class Question {
         return $this->answers;
     }
 
+
+
+    /**
+     * @param mixed $question
+     */
+    public function setQuestion($question)
+    {
+        $this->question = $question;
+    }
+
+    /**
+     * @param mixed $comment
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+    }
+    /**
+     * @param Answer[] $answers
+     */
+    public function setAnswers($answers)
+    {
+        $this->answers = $answers;
+    }
 
 } 
