@@ -16,12 +16,63 @@ class GameTest extends PHPUnit_Framework_TestCase {
     public function setUp()
     {
         // TODO: fix all the things
-        $q1 = new \MKEPUG\Question(array('question'=>'first','answers'=>array(),'comment'=>'1','answer'=>'1','wrong1'=>'1','wrong2'=>'1','wrong3'=>'1'));
-        $q2 = new \MKEPUG\Question(array('question'=>'second','answers'=>array(),'comment'=>'2','answer'=>'2','wrong1'=>'2','wrong2'=>'2','wrong3'=>'2'));
+        $q1 = new \MKEPUG\Question(array(
+            'question'=>'first',
+            'comment'=>'comment explaining answer or wrong choices',
+            'answers'=> array(
+                array(
+                    'text'    => 'text of answer choice 1',
+                    'correct' => true,
+                    'remove'  => false,
+                ),
+                array(
+                    'text'    => 'text of answer choice 2',
+                    'correct' => false,
+                    'remove'  => true,
+                ),
+                array(
+                    'text'    => 'text of answer choice 3',
+                    'correct' => false,
+                    'remove'  => false,
+                ),
+                array(
+                    'text'    => 'text of answer choice 4',
+                    'correct' => false,
+                    'remove'  => true,
+                ),
+            ),
+        ));
+        $q2 = new \MKEPUG\Question(array(
+            'question'=>'second',
+            'comment'=>'comment explaining answer or wrong choices',
+            'answers'=> array(
+                array(
+                    'text'    => 'text of answer choice 1',
+                    'correct' => true,
+                    'remove'  => false,
+                ),
+                array(
+                    'text'    => 'text of answer choice 2',
+                    'correct' => false,
+                    'remove'  => true,
+                ),
+                array(
+                    'text'    => 'text of answer choice 3',
+                    'correct' => false,
+                    'remove'  => false,
+                ),
+                array(
+                    'text'    => 'text of answer choice 4',
+                    'correct' => false,
+                    'remove'  => true,
+                ),
+            ),
+        ));
         $this->obj = new Game(array($q1,$q2));
     }
 
     public function questionKeys() {
+        //TODO: update this? or write new providers for other tests?
         return array(
             array(0,'\MKEPUG\Question','first'),
             array(1,'\MKEPUG\Question','second')
@@ -35,5 +86,15 @@ class GameTest extends PHPUnit_Framework_TestCase {
         $question = $this->obj->getQuestion($key);
         $this->assertInstanceOf($type,$question);
         $this->assertEquals($question->getQuestion(),$q);
+    }
+
+    public function testOnlyTwoChoicesRemovedFor5050() {
+        //TODO: write this here?
+        $this->assertTrue(false);
+    }
+
+    public function testOnlyOneCorrectAnswer() {
+        //TODO: write this here?
+        $this->assertTrue(false);
     }
 } 
